@@ -3,10 +3,8 @@ version: "3.9"
 services:
   wordpress:
     container_name: app
-    image: wordpress
+    image: wordpress:php7.4-fpm-alpine
     restart: always
-    ports:
-      - 8080:80
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: wordpress_user
@@ -49,6 +47,20 @@ services:
     networks:
       app_network:
         ipv4_address: 10.5.0.7
+
+  nginx:
+    build: ./.docker/nginx
+    container_name: wordpress-nginx
+    restart: always
+    ports:
+      - "127.0.0.1:8080:80"
+    volumes:
+      - ./wordpress:/var/www/html
+    depends_on:
+      - wordpress
+    networks:
+      app_network:
+        ipv4_address: 10.5.0.8
 
 networks:
   app_network:
