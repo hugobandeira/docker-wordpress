@@ -35,15 +35,15 @@ services:
     container_name: phpmyadmin
     image: phpmyadmin/phpmyadmin
     environment:
-     - PMA_ARBITRARY=1
-     - PMA_HOST=wordpressdb
-     - PMA_USER=wordpress_user
-     - PMA_PASSWORD=wordpress_pass
+      - PMA_ARBITRARY=1
+      - PMA_HOST=wordpressdb
+      - PMA_USER=wordpress_user
+      - PMA_PASSWORD=wordpress_pass
     restart: always
     ports:
-     - 8081:80
+      - 8081:80
     volumes:
-     - /sessions
+      - /sessions
     networks:
       app_network:
         ipv4_address: 10.5.0.7
