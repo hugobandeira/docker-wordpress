@@ -2,6 +2,8 @@
 
 ### Etapas para configuração do projeto
 
+Alunos: Jackson Hugo Bandeira de França, Eduardo Santana dos Santos, Ricardo dos Santos Silva 
+
 Construir projeto
 
 ```bash
